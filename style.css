@@ -1,0 +1,53 @@
+/* style.css */
+:root {
+    --discord-blurple: #5865F2;
+    --discord-dark: #313338;
+    --discord-card: #2B2D31;
+    --discord-text: #DBDEE1;
+    --discord-gray: #949BA4;
+}
+
+body {
+    margin: 0;
+    font-family: 'gg sans', 'Whitney', 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--discord-dark);
+    color: var(--discord-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* 載入畫面 */
+#loader {
+    position: fixed; inset: 0; background: var(--discord-dark);
+    display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 99;
+}
+.loading-icon { font-size: 50px; animation: bounce 1s infinite alternate; }
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-20px); } }
+
+/* 主容器 */
+.main-container { text-align: center; max-width: 550px; padding: 40px; }
+.status-title { font-size: 28px; margin: 20px 0; color: white; }
+.description { line-height: 1.6; color: var(--discord-gray); margin-bottom: 30px; }
+.highlight { color: #F23F43; font-weight: bold; font-size: 14px; }
+
+/* 排隊卡片 */
+.queue-card {
+    background: var(--discord-card);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+.progress-container {
+    background: #4E5058; height: 12px; border-radius: 6px; margin: 20px 0; overflow: hidden;
+}
+.progress-bar {
+    background: var(--discord-blurple); width: 0%; height: 100%; transition: width 1s linear;
+}
+.timer { font-size: 14px; color: var(--discord-gray); }
+
+footer { font-size: 13px; color: var(--discord-gray); line-height: 1.5; }
+footer a { color: #00A8FC; text-decoration: none; }
