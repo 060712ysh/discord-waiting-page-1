@@ -1,4 +1,3 @@
-/* style.css */
 :root {
     --discord-blurple: #5865F2;
     --discord-dark: #313338;
@@ -9,7 +8,7 @@
 
 body {
     margin: 0;
-    font-family: 'gg sans', 'Whitney', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'gg sans', sans-serif;
     background-color: var(--discord-dark);
     color: var(--discord-text);
     display: flex;
@@ -19,7 +18,6 @@ body {
     overflow: hidden;
 }
 
-/* 載入畫面 */
 #loader {
     position: fixed; inset: 0; background: var(--discord-dark);
     display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 99;
@@ -27,27 +25,51 @@ body {
 .loading-icon { font-size: 50px; animation: bounce 1s infinite alternate; }
 @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-20px); } }
 
-/* 主容器 */
 .main-container { text-align: center; max-width: 550px; padding: 40px; }
 .status-title { font-size: 28px; margin: 20px 0; color: white; }
 .description { line-height: 1.6; color: var(--discord-gray); margin-bottom: 30px; }
 .highlight { color: #F23F43; font-weight: bold; font-size: 14px; }
 
-/* 排隊卡片 */
+/* 核心卡片與外框 */
 .queue-card {
     background: var(--discord-card);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    /* 這裡就是你要的不違和外框：淡藍色光暈 + 深色投影 */
+    box-shadow: 0 0 0 2px rgba(88, 101, 242, 0.4), 0 8px 20px rgba(0,0,0,0.5);
     margin-bottom: 30px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
 }
+
 .progress-container {
     background: #4E5058; height: 12px; border-radius: 6px; margin: 20px 0; overflow: hidden;
 }
 .progress-bar {
     background: var(--discord-blurple); width: 0%; height: 100%; transition: width 1s linear;
 }
-.timer { font-size: 14px; color: var(--discord-gray); }
+
+.chat-sim { margin-top: 25px; display: flex; flex-direction: column; gap: 10px; }
+.chat-sim input {
+    background: #1E1F22; border: none; padding: 12px; border-radius: 4px; color: white; outline: none;
+}
+.chat-sim button {
+    background: var(--discord-blurple); color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer;
+}
+
+#chat-response { font-size: 12px; color: #23A559; min-height: 18px; margin-top: 5px; }
+
+.action-btn {
+    margin-top: 15px; background: #4E5058; color: white; border: none; padding: 12px;
+    border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.2s;
+}
+.action-btn:hover { background: #6D6F78; }
+
+.shake { animation: shake 0.5s; }
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
 
 footer { font-size: 13px; color: var(--discord-gray); line-height: 1.5; }
 footer a { color: #00A8FC; text-decoration: none; }
